@@ -5,6 +5,8 @@ using UnityEngine;
 public class BuildingScript : MonoBehaviour
 {
     public float HP;
+
+    public Transform boom_effect;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,7 @@ public class BuildingScript : MonoBehaviour
     {
         if (HP <= 0)
         {
+            Instantiate(boom_effect, transform.position, boom_effect.rotation);
             Destroy(gameObject);
         }
         
