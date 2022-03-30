@@ -4287,9 +4287,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.17
-  m_Height: 0.43
+  m_Height: 0.41088748
   m_Direction: 1
-  m_Center: {x: 0, y: 0.15, z: 0}
+  m_Center: {x: 0, y: 0.15955637, z: 0}
 --- !u!54 &1741596856
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4304,7 +4304,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1741596857
 MonoBehaviour:
@@ -5265,7 +5265,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 115817fded6ef9340abed365c1508e1a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 115817fded6ef9340abed365c1508e1a,
         type: 3}
@@ -5314,9 +5314,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 115817fded6ef9340abed365c1508e1a,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 115817fded6ef9340abed365c1508e1a,
+        type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 03d24c38d2867d343b19fe9d653432e6, type: 2}
+    - target: {fileID: 8485484235053141797, guid: 115817fded6ef9340abed365c1508e1a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.117
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 115817fded6ef9340abed365c1508e1a, type: 3}
