@@ -7,6 +7,8 @@ public class BuildingScript : MonoBehaviour
     public float HP;
 
     public Transform boom_effect;
+
+    public Transform hit_effect;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class BuildingScript : MonoBehaviour
      {
          if (collision.collider.gameObject.CompareTag("Player"))
          {
+            Instantiate(hit_effect, transform.position, hit_effect.rotation);
             HP -= 10f;
          }
      }
