@@ -295,6 +295,7 @@ MonoBehaviour:
   HP: 400
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!1 &76572620
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +380,7 @@ MonoBehaviour:
   HP: 400
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &192057257
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -516,6 +518,7 @@ MonoBehaviour:
   HP: 100
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &298049428
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -622,14 +625,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.12558389, y: 0.01941407, z: -0.008280756, w: 0.99185854}
+  m_LocalRotation: {x: 0.12573798, y: -0.0028334297, z: -0.0054624295, w: 0.99204445}
   m_LocalPosition: {x: -0.09, y: 4.6, z: -4.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 14.445, y: 2.156, z: -0.683}
+  m_LocalEulerAnglesHint: {x: 14.445, y: -0.414, z: -0.683}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1050,6 +1053,7 @@ MonoBehaviour:
   HP: 200
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &482249139
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1187,6 +1191,7 @@ MonoBehaviour:
   HP: 400
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &504016376
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1324,6 +1329,7 @@ MonoBehaviour:
   HP: 100
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &557903862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1542,6 +1548,7 @@ MonoBehaviour:
   HP: 300
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &593333576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1809,6 +1816,7 @@ MonoBehaviour:
   HP: 100
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &873021843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1865,6 +1873,7 @@ MonoBehaviour:
   HP: 1000
   boom_effect: {fileID: 4782282035096714, guid: 4adffb0018aeda44e9263f901167af1f,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &897917599
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2117,6 +2126,7 @@ MonoBehaviour:
   HP: 400
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1075511268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2173,6 +2183,7 @@ MonoBehaviour:
   HP: 300
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1092436587
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2339,6 +2350,7 @@ MonoBehaviour:
   HP: 200
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!1 &1132462230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 11d0893c8c6657243984cea42cf88165,
@@ -2366,6 +2378,7 @@ MonoBehaviour:
   HP: 100
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1132462233
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2532,6 +2545,7 @@ MonoBehaviour:
   HP: 300
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!1 &1204486399 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5540c6be6eea9844e8dcd5e73ce59d93,
@@ -2646,6 +2660,7 @@ MonoBehaviour:
   HP: 300
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1288042486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2702,6 +2717,7 @@ MonoBehaviour:
   HP: 300
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1340488768
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2839,6 +2855,7 @@ MonoBehaviour:
   HP: 200
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1379261660
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2976,6 +2993,7 @@ MonoBehaviour:
   HP: 200
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1417364699
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3032,6 +3050,7 @@ MonoBehaviour:
   HP: 300
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1437349591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3088,6 +3107,7 @@ MonoBehaviour:
   HP: 200
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1521302500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3248,6 +3268,7 @@ MonoBehaviour:
   HP: 1000
   boom_effect: {fileID: 4782282035096714, guid: 4adffb0018aeda44e9263f901167af1f,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!1001 &1548637651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3437,6 +3458,7 @@ MonoBehaviour:
   HP: 400
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1573110130
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3574,6 +3596,7 @@ MonoBehaviour:
   HP: 400
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1604457166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4011,6 +4034,7 @@ MonoBehaviour:
   HP: 200
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1786856049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4148,6 +4172,7 @@ MonoBehaviour:
   HP: 200
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!65 &1829569082
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4308,6 +4333,7 @@ MonoBehaviour:
   HP: 100
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
+  hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!1001 &1855368983
 PrefabInstance:
   m_ObjectHideFlags: 0
