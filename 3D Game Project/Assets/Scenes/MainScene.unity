@@ -6544,8 +6544,7 @@ MonoBehaviour:
   boom_effect: {fileID: 4977646799359860, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 3}
   hit_effect: {fileID: 400004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
---- !u!65 &1340488768
-BoxCollider:
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
