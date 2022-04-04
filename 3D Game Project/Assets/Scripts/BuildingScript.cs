@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class BuildingScript : MonoBehaviour
 {
+
     public float HP;
 
     public Transform boom_effect;
 
     public Transform hit_effect;
+
+    private ScoreManager scoreManager;
+
+    private float buildingScore;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        buildingScore = HP;
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -22,6 +29,7 @@ public class BuildingScript : MonoBehaviour
         {
             Instantiate(boom_effect, transform.position, boom_effect.rotation);
             Destroy(gameObject);
+            scoreManager.AddScore(buildingScore);
         }
         
     }
