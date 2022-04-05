@@ -36,11 +36,17 @@ public class BuildingScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
      {
-         if (collision.collider.gameObject.CompareTag("Player") || collision.collider.gameObject.CompareTag("Building"))
+        if (collision.collider.gameObject.CompareTag("Player") || collision.collider.gameObject.CompareTag("Building"))
          {
             Debug.Log(collision.collider.gameObject.tag);
             Instantiate(hit_effect, transform.position, hit_effect.rotation);
             HP -= 10f;
+         }
+        else if (collision.collider.gameObject.CompareTag("Fist"))
+         {
+            Debug.Log(collision.collider.gameObject.tag);
+            Instantiate(hit_effect, transform.position, hit_effect.rotation);
+            HP -= 20f;
          }
      }
 }
