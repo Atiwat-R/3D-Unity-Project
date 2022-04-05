@@ -49,7 +49,6 @@ public class TankController : MonoBehaviour
 		{
 			// Fire if aim is valid.
 			this.currentState = State.Shooting;
-			Shoot();
 		}
 		else if (this.CanSeeTarget())
 		{
@@ -115,8 +114,7 @@ public class TankController : MonoBehaviour
 				this.agent.isStopped = true;
 				this.agent.enabled = false;
 			}
-			GameObject.Destroy(this);
-			GameObject.Destroy(this.gameObject, 60);
+			Destroy(gameObject);
 		}
 	}
 
