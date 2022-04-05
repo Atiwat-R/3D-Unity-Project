@@ -11,9 +11,12 @@ public class ChickenController : MonoBehaviour
     Animator animator;                          
     Vector2 currentMovementInput; 
     Vector3 currentMovement;
-    Vector3 currentRunMovement;                 
+    Vector3 currentRunMovement; 
+
     bool isMovementPressed;
-    bool isRunPressed;                          
+    bool isRunPressed;     
+    bool isAttackPressed;       
+
     float rotationFactorPerFrame = 1.0f;    
     float runMultiplier = 2.0f;   
     public float pushPower = 2.0F;   
@@ -27,12 +30,18 @@ public class ChickenController : MonoBehaviour
         playerInput.CharacterControls.Move.canceled += onMovementInput;
         playerInput.CharacterControls.Move.performed += onMovementInput;
         playerInput.CharacterControls.Run.started += onRun;         
-        playerInput.CharacterControls.Run.canceled += onRun;        
+        playerInput.CharacterControls.Run.canceled += onRun;   
+        playerInput.CharacterControls.Attack.performed += OnAttack;     
     }
 
     void onRun(InputAction.CallbackContext context)     
     {
         isRunPressed = context.ReadValueAsButton();
+    }
+
+    void OnAttack(InputAction.CallbackContext context) {
+        Debug.Log("LCK");
+        animator.SetTrigger("isAttack");
     }
 
     void onMovementInput(InputAction.CallbackContext context)
@@ -86,6 +95,7 @@ public class ChickenController : MonoBehaviour
     {
         bool isWalking = animator.GetBool("isWalking");
         bool isRunning = animator.GetBool("isRunning");
+
         if(isMovementPressed && !isWalking)   
         {
             animator.SetBool("isWalking", true);
@@ -97,7 +107,8 @@ public class ChickenController : MonoBehaviour
         if(isRunPressed && isWalking)   
         {
             animator.SetBool("isRunning", true);
-        } else if (!isRunPressed && isRunning)
+        } 
+        else if (!isRunPressed && isRunning)
         {
             animator.SetBool("isRunning", false);
         }
@@ -121,7 +132,7 @@ public class ChickenController : MonoBehaviour
     {
         handleGravity();     // <--- Added
         handleRotation();           
-        handleAnimation();             
+        handleAnimation();           
         if(isRunPressed)                                                        
         {
             characterController.Move(currentRunMovement * Time.deltaTime);
