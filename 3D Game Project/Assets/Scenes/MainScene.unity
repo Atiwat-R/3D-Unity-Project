@@ -8182,10 +8182,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1582602762, guid: b16da860347f9f94eb5f0fb490707765, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.81
-      objectReference: {fileID: 0}
     - target: {fileID: 1967273810269512, guid: b16da860347f9f94eb5f0fb490707765, type: 3}
       propertyPath: m_Name
       value: armata_green
@@ -8243,11 +8239,6 @@ PrefabInstance:
         type: 3}
       propertyPath: VisionRange
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8721259990172533831, guid: b16da860347f9f94eb5f0fb490707765,
-        type: 3}
-      propertyPath: m_Acceleration
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
