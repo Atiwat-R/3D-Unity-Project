@@ -39,6 +39,7 @@ public class TankController : MonoBehaviour
 			horizontalAim.Normalize();
 			this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation, Quaternion.LookRotation(horizontalAim, Vector3.up), Time.deltaTime * this.RotationSpeed);
 		}
+		Behave();
     }
 
 	protected void Behave()
@@ -48,11 +49,13 @@ public class TankController : MonoBehaviour
 		{
 			// Fire if aim is valid.
 			this.currentState = State.Shooting;
+			Shoot();
 		}
 		else if (this.CanSeeTarget())
 		{
 			// Aim if target is in sight.
 			this.currentState = State.Aiming;
+			this.agent.isStopped = true;
 		}
 		else
 		{
@@ -95,19 +98,25 @@ public class TankController : MonoBehaviour
 		}
 	}
 
-    public virtual void Shoot()
+    public void Shoot()
 	{
 		GameObject projectile = GameObject.Instantiate(this.ProjectilePrefab, this.CanonPoint.transform.position, this.CanonPoint.transform.rotation, this.transform.parent);
 		GameObject.Destroy(projectile, 10f);
 	}
 
-    protected virtual void OnCollisionEnter(Collision collision)
+    protected void OnCollisionEnter(Collision collision)
 	{
 		if (collision.collider.tag == "Player"
 		 || collision.collider.tag == "Building" && collision.rigidbody && !collision.rigidbody.isKinematic)
 		{
             Instantiate(boom_effect, transform.position, boom_effect.rotation);
+			if (this.agent.enabled)
+			{
+				this.agent.isStopped = true;
+				this.agent.enabled = false;
+			}
 			GameObject.Destroy(this);
+			GameObject.Destroy(this.gameObject, 60);
 		}
 	}
 
