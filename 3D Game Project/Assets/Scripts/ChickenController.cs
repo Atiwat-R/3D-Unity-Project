@@ -40,7 +40,6 @@ public class ChickenController : MonoBehaviour
     }
 
     void OnAttack(InputAction.CallbackContext context) {
-        Debug.Log("LCK");
         animator.SetTrigger("isAttack");
     }
 
@@ -74,7 +73,7 @@ public class ChickenController : MonoBehaviour
         // then you can also multiply the push velocity by that.
 
         // Apply the push
-        body.velocity = pushDir * pushPower;
+        body.velocity = pushDir * pushPower; //* characterController.velocity.magnitude;
     }
 
     void handleRotation()               
