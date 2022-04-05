@@ -39,18 +39,19 @@ public class TankController : MonoBehaviour
 			horizontalAim.Normalize();
 			this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation, Quaternion.LookRotation(horizontalAim, Vector3.up), Time.deltaTime * this.RotationSpeed);
 		}
+		if (this.currentState == State.Shooting)
+		{
+			Shoot();
+			this.currentState = State.Following;
+		}
     }
 
 	protected void Behave()
 	{
-		
 		if (this.currentState == State.Aiming && this.CanShootTarget())
 		{
 			// Fire if aim is valid.
 			this.currentState = State.Shooting;
-			Shoot();
-			this.currentState = State.Following;
-
 		}
 		else if (this.CanSeeTarget())
 		{
@@ -106,7 +107,7 @@ public class TankController : MonoBehaviour
 
     public void Shoot()
 	{
-		Instantiate(this.ProjectilePrefab, this.CanonPoint.transform.position, this.transform.rotation);
+		Instantiate(this.ProjectilePrefab, this.CanonPoint.transform.position, this.CanonPoint.transform.rotation, this.transform.parent);
 	}
 
     protected void OnCollisionEnter(Collision collision)
