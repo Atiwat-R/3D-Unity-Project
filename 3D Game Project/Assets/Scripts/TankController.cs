@@ -74,7 +74,7 @@ public class TankController : MonoBehaviour
 		}
 
 		RaycastHit hit;
-		if (Physics.Linecast(this.CanonPoint.transform.position, player.transform.position, out hit))
+		if (Physics.Linecast(this.CanonPoint.transform.position, player.transform.position, out hit, this.ShotLayer))
 		{
 			return hit.collider.tag == "Player";
 		}
@@ -100,7 +100,6 @@ public class TankController : MonoBehaviour
     public void Shoot()
 	{
 		GameObject projectile = GameObject.Instantiate(this.ProjectilePrefab, this.CanonPoint.transform.position, this.CanonPoint.transform.rotation, this.transform.parent);
-		GameObject.Destroy(projectile, 10f);
 	}
 
     protected void OnCollisionEnter(Collision collision)
