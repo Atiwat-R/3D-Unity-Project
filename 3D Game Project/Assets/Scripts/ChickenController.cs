@@ -40,6 +40,7 @@ public class ChickenController : MonoBehaviour
     }
 
     void OnAttack(InputAction.CallbackContext context) {
+        Debug.Log("LCK");
         animator.SetTrigger("isAttack");
     }
 
