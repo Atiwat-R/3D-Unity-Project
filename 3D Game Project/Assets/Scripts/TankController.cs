@@ -15,19 +15,54 @@ public class TankController : MonoBehaviour
 
     public GameObject CanonPoint;
 
+	public LayerMask ShotLayer;
+
+	private State currentState;
+	public float RotationSpeed;
+
     public int VisionRange;
     // Start is called before the first frame update
     void Start()
     {
         this.agent = this.GetComponent<NavMeshAgent>();
         this.player = GameObject.FindGameObjectWithTag("Player");
+		this.currentState = State.Following;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+		if (this.currentState == State.Aiming)
+		{
+			Vector3 horizontalAim = player.transform.position - this.transform.position;
+			horizontalAim.y = 0f;
+			horizontalAim.Normalize();
+			this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation, Quaternion.LookRotation(horizontalAim, Vector3.up), Time.deltaTime * this.RotationSpeed);
+		}
     }
+
+	protected void Behave()
+	{
+		
+		if (this.currentState == State.Aiming && this.CanShootTarget())
+		{
+			// Fire if aim is valid.
+			this.currentState = State.Shooting;
+		}
+		else if (this.CanSeeTarget())
+		{
+			// Aim if target is in sight.
+			this.currentState = State.Aiming;
+		}
+		else
+		{
+			// Follow if line of sight is broken.
+			this.currentState = State.Following;
+			this.agent.isStopped = false;
+			this.agent.SetDestination(player.transform.position);
+		}
+
+	}
 
     protected bool CanSeeTarget()
 	{
@@ -38,6 +73,19 @@ public class TankController : MonoBehaviour
 
 		RaycastHit hit;
 		if (Physics.Linecast(this.CanonPoint.transform.position, player.transform.position, out hit))
+		{
+			return hit.collider.tag == "Player";
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	private bool CanShootTarget()
+	{
+		RaycastHit hit;
+		if (Physics.Raycast(this.CanonPoint.transform.position, this.CanonPoint.transform.forward, out hit, 30f, this.ShotLayer))
 		{
 			return hit.collider.tag == "Player";
 		}
