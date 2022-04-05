@@ -22,6 +22,7 @@ public class BulletScript : MonoBehaviour
 	{
 		if (collision.collider.tag == "Player"
          || collision.collider.tag == "Wall"
+         || collision.collider.tag == "Enemy"
 		 || collision.collider.tag == "Building" && collision.rigidbody && !collision.rigidbody.isKinematic)
 		{
             Instantiate(hit_effect, transform.position, hit_effect.rotation);
