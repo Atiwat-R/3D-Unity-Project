@@ -6,11 +6,11 @@ public class TimedSpawner : MonoBehaviour
 {
 
     public GameObject spawnee; // Specify what Prefab to spawn
-    private int maximumSpawnee = 15; // 
     public bool stopSpawning = false;
 
     [SerializeField] float spawnTime; // How long before we start the spawning
     [SerializeField] float spawnDelay; // Delay between each
+    [SerializeField] int maximumSpawnee; // Maximum spawnee that can exist at once
 
 
     // Start is called before the first frame update

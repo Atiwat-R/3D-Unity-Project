@@ -89,8 +89,9 @@ public class ChickenController : MonoBehaviour
 	{
 		if (collision.collider.tag == "Bullet")
 		{
-            Debug.Log($"HP: {this.HP}");
-            this.HP -= 30f;
+            // Debug.Log($"HP: {this.HP}");
+
+            this.HP -= 15f; // Bullet Damage to Chicken
             healthBar.SetHealth(HP);
 
             // Check if Dead

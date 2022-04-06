@@ -47,4 +47,5 @@ MonoBehaviour:
   spawnee: {fileID: 1967273810269512, guid: b16da860347f9f94eb5f0fb490707765, type: 3}
   stopSpawning: 0
   spawnTime: 3
-  spawnDelay: 20
+  spawnDelay: 10
+  maximumSpawnee: 15

@@ -21,12 +21,18 @@ public class TankController : MonoBehaviour
 	public float RotationSpeed;
 
     public int VisionRange;
+
+	private ScoreManager scoreManager;
+	private float tankScore = 30f;
+
     // Start is called before the first frame update
     void Start()
     {
         this.agent = this.GetComponent<NavMeshAgent>();
         this.player = GameObject.FindGameObjectWithTag("Player");
 		this.currentState = State.Following;
+
+		this.scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -119,6 +125,7 @@ public class TankController : MonoBehaviour
 				this.agent.enabled = false;
 			}
 			Destroy(gameObject);
+			this.scoreManager.AddScore(this.tankScore);
 		}
 	}
 
