@@ -17,7 +17,9 @@ public class ChickenController : MonoBehaviour
     bool isRunPressed;     
     bool isAttackPressed;      
 
-    private float HP; 
+    public float maxHealth = 1000f;
+    public float HP; 
+    public HealthbarManager healthBar;
 
     float rotationFactorPerFrame = 1.0f;    
     float runMultiplier = 2.0f;   
@@ -35,7 +37,8 @@ public class ChickenController : MonoBehaviour
         playerInput.CharacterControls.Run.canceled += onRun;   
         playerInput.CharacterControls.Attack.performed += OnAttack;   
 
-        this.HP = 1000f;
+        this.HP = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void onRun(InputAction.CallbackContext context)     
@@ -88,6 +91,7 @@ public class ChickenController : MonoBehaviour
 		{
             Debug.Log($"HP: {this.HP}");
             this.HP -= 30f;
+            healthBar.SetHealth(HP);
 
             // Check if Dead
             if (this.HP <= 0) {
