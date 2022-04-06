@@ -23,7 +23,9 @@ public class BulletScript : MonoBehaviour
 		if (collision.collider.tag == "Player"
          || collision.collider.tag == "Wall"
          || collision.collider.tag == "Enemy"
-		 || collision.collider.tag == "Building" && collision.rigidbody && !collision.rigidbody.isKinematic)
+		 || collision.collider.tag == "Building" && collision.rigidbody && !collision.rigidbody.isKinematic
+         || collision.collider.tag == "Road"
+         || collision.collider.tag == "Ground")
 		{
             Instantiate(hit_effect, transform.position, hit_effect.rotation);
 			Destroy(gameObject);
