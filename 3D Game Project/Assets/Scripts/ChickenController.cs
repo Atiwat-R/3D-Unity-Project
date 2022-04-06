@@ -15,7 +15,11 @@ public class ChickenController : MonoBehaviour
 
     bool isMovementPressed;
     bool isRunPressed;     
-    bool isAttackPressed;       
+    bool isAttackPressed;      
+
+    public float maxHealth = 1000f;
+    public float HP; 
+    public HealthbarManager healthBar;
 
     float rotationFactorPerFrame = 1.0f;    
     float runMultiplier = 2.0f;   
@@ -31,7 +35,10 @@ public class ChickenController : MonoBehaviour
         playerInput.CharacterControls.Move.performed += onMovementInput;
         playerInput.CharacterControls.Run.started += onRun;         
         playerInput.CharacterControls.Run.canceled += onRun;   
-        playerInput.CharacterControls.Attack.performed += OnAttack;     
+        playerInput.CharacterControls.Attack.performed += OnAttack;   
+
+        this.HP = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void onRun(InputAction.CallbackContext context)     
@@ -53,6 +60,7 @@ public class ChickenController : MonoBehaviour
             isMovementPressed = currentMovement.x != 0 || currentMovement.z != 0;
     }
 
+    // When Chicken hits something, it knocks them back
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
@@ -75,6 +83,23 @@ public class ChickenController : MonoBehaviour
         // Apply the push
         body.velocity = pushDir * pushPower; //* characterController.velocity.magnitude;
     }
+
+    // When Chicken is hit by something
+    void OnCollisionEnter(Collision collision)
+	{
+		if (collision.collider.tag == "Bullet")
+		{
+            // Debug.Log($"HP: {this.HP}");
+
+            this.HP -= 15f; // Bullet Damage to Chicken
+            healthBar.SetHealth(HP);
+
+            // Check if Dead
+            if (this.HP <= 0) {
+                Debug.Log("DEAD!!!!!!!!!!!!!!!!!!!!!!!!!");
+            }
+		}
+	}
 
     void handleRotation()               
     {

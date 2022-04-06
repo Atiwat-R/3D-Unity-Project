@@ -40,13 +40,13 @@ public class BuildingScript : MonoBehaviour
          {
             Debug.Log(collision.collider.gameObject.tag);
             Instantiate(hit_effect, transform.position, hit_effect.rotation);
-            HP -= 10f;
+            HP -= 5f; // Initially 10f;
          }
         else if (collision.collider.gameObject.CompareTag("Fist"))
          {
             Debug.Log(collision.collider.gameObject.tag);
             Instantiate(hit_effect, transform.position, hit_effect.rotation);
-            HP -= 20f;
+            HP -= 15f;
          }
      }
 }
