@@ -33,6 +33,8 @@ public class TankController : MonoBehaviour
 		this.currentState = State.Following;
 
 		this.scoreManager = FindObjectOfType<ScoreManager>();
+
+		this.InvokeRepeating(nameof(Behave), Random.Range(0f, 2f), 3f);
     }
 
     // Update is called once per frame
@@ -44,8 +46,13 @@ public class TankController : MonoBehaviour
 			horizontalAim.y = 0f;
 			horizontalAim.Normalize();
 			this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation, Quaternion.LookRotation(horizontalAim, Vector3.up), Time.deltaTime * this.RotationSpeed);
+
+			Vector3 verticalAim = player.transform.position - this.CanonPoint.transform.position;
+			verticalAim.Normalize();
+			verticalAim = this.CanonPoint.transform.InverseTransformDirection(verticalAim);
+			this.CanonPoint.transform.localRotation = Quaternion.RotateTowards(this.CanonPoint.transform.localRotation, Quaternion.LookRotation(verticalAim), Time.deltaTime * this.RotationSpeed);
 		}
-		Behave();
+		//Behave();
     }
 
 	protected void Behave()
