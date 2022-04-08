@@ -14,7 +14,6 @@ public class MainMenu : MonoBehaviour
     }
 
     public void PlayGame() {
-        Debug.Log("PRESSED");
         SceneManager.LoadScene("MainScene");
     }
 
