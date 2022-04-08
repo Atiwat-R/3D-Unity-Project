@@ -38,7 +38,7 @@ public class TankController : MonoBehaviour
 		this.scoreManager = FindObjectOfType<ScoreManager>();
 		this.HP = maxHealth;
 
-		this.InvokeRepeating(nameof(Behave), Random.Range(0f, 2f), 3f);
+		this.InvokeRepeating(nameof(Behave), Random.Range(0f, 2f), 1f);
     }
 
     // Update is called once per frame
