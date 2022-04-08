@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 public class ChickenController : MonoBehaviour
 {
     PlayerInput playerInput;
@@ -97,6 +99,7 @@ public class ChickenController : MonoBehaviour
             // Check if Dead
             if (this.HP <= 0) {
                 Debug.Log("DEAD!!!!!!!!!!!!!!!!!!!!!!!!!");
+                SceneManager.LoadScene("GameOverScreen");
             }
 		}
 	}
