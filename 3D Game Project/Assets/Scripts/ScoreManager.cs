@@ -19,6 +19,9 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         scoreText.text = "Score: " + Mathf.Round(scoreCount);
+
+        // Save Score across Scenes
+        PlayerPrefs.SetFloat("FinalScore", scoreCount);
     }
 
     public void AddScore(float points) {
