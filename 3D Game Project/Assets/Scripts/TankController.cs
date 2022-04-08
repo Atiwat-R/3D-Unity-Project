@@ -12,6 +12,7 @@ public class TankController : MonoBehaviour
 
     public GameObject ProjectilePrefab;
     public Transform boom_effect;
+	public Transform hit_effect;
 
     public GameObject CanonPoint;
 
@@ -23,7 +24,9 @@ public class TankController : MonoBehaviour
     public int VisionRange;
 
 	private ScoreManager scoreManager;
-	private float tankScore = 30f;
+	private float maxHealth = 30f;
+	private float HP;
+	private float damageFromPlayer = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class TankController : MonoBehaviour
 		this.currentState = State.Following;
 
 		this.scoreManager = FindObjectOfType<ScoreManager>();
+		this.HP = maxHealth;
 
 		this.InvokeRepeating(nameof(Behave), Random.Range(0f, 2f), 3f);
     }
@@ -120,22 +124,41 @@ public class TankController : MonoBehaviour
 		Instantiate(this.ProjectilePrefab, this.CanonPoint.transform.position, this.CanonPoint.transform.rotation);
 	}
 
+	// When Tank is destroyed
+	private void tankDeath() {
+		Instantiate(boom_effect, transform.position, boom_effect.rotation); // Special effects
+		if (this.agent.enabled)
+		{
+			this.agent.isStopped = true;
+			this.agent.enabled = false;
+			this.CancelInvoke(nameof(Behave));
+		}
+		Destroy(gameObject);
+	}
+
+	// When Tank collides with something
     protected void OnCollisionEnter(Collision collision)
 	{
-		if (collision.collider.tag == "Player"
-		 || collision.collider.tag == "Building" && collision.rigidbody && !collision.rigidbody.isKinematic)
+		// Collision with Player
+		if (collision.collider.tag == "Player" || collision.collider.tag == "Fist") 
 		{
-            Instantiate(boom_effect, transform.position, boom_effect.rotation);
-			if (this.agent.enabled)
-			{
-				this.agent.isStopped = true;
-				this.agent.enabled = false;
-				this.CancelInvoke(nameof(Behave));
-			}
-			Destroy(gameObject);
-			this.scoreManager.AddScore(this.tankScore);
+			Instantiate(hit_effect, transform.position, hit_effect.rotation);
+			this.HP -= damageFromPlayer; // Take damage
+
+			// Check if Dead
+            if (this.HP <= 0) { 
+                Debug.Log("DEAD!!!!!!!!!!!!!!!!!!!!!!!!!");
+				this.tankDeath();
+            }
+		}
+		// Collision with Buildings (Instakill)
+		else if (collision.collider.tag == "Building" && collision.rigidbody && !collision.rigidbody.isKinematic)
+		{
+            this.tankDeath();
+			this.scoreManager.AddScore(this.maxHealth);
 		}
 	}
+
 
     private enum State
 	{

@@ -11858,7 +11858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1656538674}
-  scoreCount: 100
+  scoreCount: 0
 --- !u!1 &1417364696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6fa483ccbad59f84d981caa5539be482,
