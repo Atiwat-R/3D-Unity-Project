@@ -130,6 +130,7 @@ public class TankController : MonoBehaviour
 			{
 				this.agent.isStopped = true;
 				this.agent.enabled = false;
+				this.CancelInvoke(nameof(Behave));
 			}
 			Destroy(gameObject);
 			this.scoreManager.AddScore(this.tankScore);
