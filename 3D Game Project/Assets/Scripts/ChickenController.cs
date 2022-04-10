@@ -98,11 +98,19 @@ public class ChickenController : MonoBehaviour
 
             // Check if Dead
             if (this.HP <= 0) {
-                Debug.Log("DEAD!!!!!!!!!!!!!!!!!!!!!!!!!");
-                SceneManager.LoadScene("GameOverScreen");
+                StartCoroutine(chickenDeath()); // Call chickenDeath() 
             }
 		}
 	}
+
+    // Pause script
+    IEnumerator chickenDeath()
+    {
+        // Debug.Log("DEAD!!!!!!!!!!!!!!!!!!!!!!!!!");
+        animator.SetTrigger("isDead");
+        yield return new WaitForSeconds(4); // Pause script to let Death Animation play
+        SceneManager.LoadScene("GameOverScreen"); // Move
+    }
 
     void handleRotation()               
     {
