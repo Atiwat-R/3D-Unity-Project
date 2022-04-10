@@ -13,6 +13,8 @@ public class BuildingScript : MonoBehaviour
 
     private ScoreManager scoreManager;
 
+    private SoundEffectManager soundEffectManager;
+
     private float buildingScore;
 
     // Start is called before the first frame update
@@ -20,13 +22,16 @@ public class BuildingScript : MonoBehaviour
     {
         buildingScore = HP;
         scoreManager = FindObjectOfType<ScoreManager>();
+        soundEffectManager = FindObjectOfType<SoundEffectManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // If Dead
         if (HP <= 0)
         {
+            soundEffectManager.PlayBoomSF();
             Instantiate(boom_effect, transform.position, boom_effect.rotation);
             Destroy(gameObject);
             scoreManager.AddScore(buildingScore);
@@ -36,15 +41,16 @@ public class BuildingScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
      {
+
+         // Debug.Log(collision.collider.gameObject.tag);
         if (collision.collider.gameObject.CompareTag("Player") || collision.collider.gameObject.CompareTag("Building"))
          {
-            Debug.Log(collision.collider.gameObject.tag);
+            soundEffectManager.PlayHitSF();
             Instantiate(hit_effect, transform.position, hit_effect.rotation);
             HP -= 5f; // Initially 10f;
          }
         else if (collision.collider.gameObject.CompareTag("Fist"))
          {
-            Debug.Log(collision.collider.gameObject.tag);
             Instantiate(hit_effect, transform.position, hit_effect.rotation);
             HP -= 15f;
          }

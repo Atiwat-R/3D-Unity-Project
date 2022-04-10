@@ -6,10 +6,12 @@ public class BulletScript : MonoBehaviour
 {
     public float Speed;
     public Transform hit_effect;
+    private SoundEffectManager soundEffectManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        soundEffectManager = FindObjectOfType<SoundEffectManager>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class BulletScript : MonoBehaviour
          || collision.collider.tag == "Road"
          || collision.collider.tag == "Ground")
 		{
+            soundEffectManager.PlayCannonSF();
             Instantiate(hit_effect, transform.position, hit_effect.rotation);
 			Destroy(gameObject);
 		}
