@@ -23,8 +23,8 @@ public class TimedSpawner : MonoBehaviour
     void Update() {
         // Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
 
-        // If enemy has decreased below limit, turn it on again. 
-        if (stopSpawning == true && GameObject.FindGameObjectsWithTag("Enemy").Length <= maximumSpawnee) {
+        // If total gameObject of that tag has decreased below limit, turn it on again. 
+        if (stopSpawning == true && GameObject.FindGameObjectsWithTag(spawnee.tag).Length <= maximumSpawnee) {
             InvokeRepeating("SpawnObject", spawnTime, spawnDelay);
         }
     }
