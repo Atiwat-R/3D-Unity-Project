@@ -28,6 +28,8 @@ public class TankController : MonoBehaviour
 	private float HP;
 	private float damageFromPlayer = 5f;
 
+	private SoundEffectManager soundEffectManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,8 @@ public class TankController : MonoBehaviour
 
 		this.scoreManager = FindObjectOfType<ScoreManager>();
 		this.HP = maxHealth;
+
+		this.soundEffectManager = FindObjectOfType<SoundEffectManager>();
 
 		this.InvokeRepeating(nameof(Behave), Random.Range(0f, 2f), 1f);
     }
@@ -126,6 +130,7 @@ public class TankController : MonoBehaviour
 
 	// When Tank is destroyed
 	private void tankDeath() {
+		soundEffectManager.PlayBoomSF();
 		Instantiate(boom_effect, transform.position, boom_effect.rotation); // Special effects
 		if (this.agent.enabled)
 		{
@@ -142,12 +147,12 @@ public class TankController : MonoBehaviour
 		// Collision with Player
 		if (collision.collider.tag == "Player" || collision.collider.tag == "Fist") 
 		{
+			soundEffectManager.PlayHitSF();
 			Instantiate(hit_effect, transform.position, hit_effect.rotation);
 			this.HP -= damageFromPlayer; // Take damage
 
 			// Check if Dead
             if (this.HP <= 0) { 
-                Debug.Log("DEAD!!!!!!!!!!!!!!!!!!!!!!!!!");
 				this.tankDeath();
             }
 		}
